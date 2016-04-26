@@ -73,15 +73,31 @@
       <script type="text/javascript" src="js/materialize.min.js"></script> 
       <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
       <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
-
-          
-      <script id="blogs-template" type="text/x-handlebars-template">
+     
+            <script id="blogs-template" type="text/x-handlebars-template">
       {{#each tasks}}
         <div class="blog-post">
-              <h2 class="blog-post-title">{{title}}</h2>
-              <p class="blog-post-meta">At {{format created}} by {{authorEmail}}</p>
-              <div><h5>{{content}}</h5></div>
+             <h2 class="blog-post-title">
+           {{#if false}}
+   <a class="complete"><img class="box" src="pics/checkbox.jpg" alt=""/>
+  {{else}}
+    <a class="complete"><img class="box" src="pics/box.png" alt=""/>
+  {{/if}}
+</a>{{title}}</h2>
+              <h6 class="blog-post-meta">At {{format created}}  
+            
+          <div class="entry">
+  {{#if authorEmail}}
+   <h5> by {{authorEmail}}</h5>
+  {{else}}
+    <h5>Anonymous</h5>
+  {{/if}}
+</div>
+           
+              <div><h4>{{content}}</h4></div>
+             
         {{/each}}       
+        
       </script> 
       
       <script id="add-blog-template" type="text/x-handlebars-template">

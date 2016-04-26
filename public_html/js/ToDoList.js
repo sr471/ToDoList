@@ -9,10 +9,9 @@ $(function (){
    var tasksCollection = Backendless.Persistence.of(Tasks).find();
    
    console.log(tasksCollection);
-   
+    
    var wrapper = {
-       tasks: tasksCollection.data
-       
+       tasks: tasksCollection.data        
        
    }; 
    
@@ -23,6 +22,12 @@ $(function (){
         
            $('.main-container').html(addBlogTemplate);    });
        
+        $(document).on('click', '.complete', function(Tasks){
+            console.log("complete");  
+            done();     
+            
+              });
+       
         $(document).on('submit', '.form-add-blog', function (event){
          event.preventDefault();
          
@@ -30,9 +35,12 @@ $(function (){
             title = data[0].value,
             content = data[1].value;
             
-           if (content === "" || title === "") {
-           Materialize.toast('Cannot leave title or content empty!', 4000, 'rounded');
+           if (title === "") {
+           Materialize.toast('Cannot leave title empty!', 4000, 'rounded');
         }
+       else if (content === "") {
+           Materialize.toast('Cannot leave content empty!', 4000, 'rounded');
+       }
        else {
             
         var dataStore = Backendless.Persistence.of(Tasks);
@@ -40,8 +48,11 @@ $(function (){
         var taskObject = new Tasks({
             title: title,
             content: content,
-         //   authorEmail: Backendless.UserService.getCurrentUser().email
+          //  authorEmail: Backendless.UserService.getCurrentUser().email,
+            complete: false
         });
+      
+
         Materialize.toast('Posted', 5000);
         
         dataStore.save(taskObject);
@@ -69,5 +80,29 @@ function Tasks(args){
     this.title = args.title || "";
     this.content = args.content || "";
     this.authorEmail = args.authorEmail || "";
+    this.complete = args.complete || false || true;
 }
 
+function done(){
+            //this.complete =  true;
+    
+    console.log("lllllllllllllllllllllll");
+    
+
+ /*var dataStore = Backendless.Persistence.of(Tasks);
+ var taskObject = Tasks;
+ var savedTask = Backendless.Persistence.of( Tasks ).save( taskObject );
+savedTask["complete"] = true;
+dataStore.save( savedTask );*/
+ Handlebars.registerHelper('pressed', function(){
+ var query = {condition: "complete"}   
+ var dodone = Backendless.Persistence.of(Tasks).find(query);
+ console.log(query);
+ console.log(dodone);
+//dodone["Complete"] = true;
+//dodone.save( dodone );
+});
+}
+/*BackendlessUser user = Backendless.UserService.login( "spidey@backendless.com", "myNewPassword" );
+user.setPassword( "myNewPassword1" );
+Backendless.Data.of( BackendlessUser.class ).save( user );*/

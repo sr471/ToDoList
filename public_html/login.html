@@ -5,6 +5,8 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
       <link href="css/ToDoList.css" rel="stylesheet" type="text/css"/>
       <title> To Do List</title> 
       <!--Let browser know website is optimized for mobile-->
@@ -22,8 +24,10 @@
           <nav class="pink">
               
     <div class="nav-wrapper">
-      <a href="index.html" class="center brand-logo font"> To Do List</a>
-      
+      <a href="index.html" class="center brand-logo font"> To Do List </a>
+       <ul>
+          <li><a href="#!" class="add-blog"><i class="material-icons left">library_add</i>Add Task</a></li>
+      </ul>  
       <ul class="right">
         
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
@@ -40,11 +44,11 @@
       <main >
           <div class="container">
             <div class="row">
-                <h2 class="center">Login</h2>
+                <h2 class="center"> </h2>
             </div>
             <div class="row">
                 <div class="col s12 main-container center">
-                    
+                  
                 </div>
             </div>
         </div>    
@@ -61,11 +65,78 @@
                 </div>
             </div>
         </footer>
-       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="libs/backendless.js" type="text/javascript"></script>
-      <script src="js/ToDoList.js" type="text/javascript"></script>
+       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+      <script type="text/javascript" src="libs/backendless.js" ></script>
+      <script type="text/javascript" src="js/login.js" ></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" ></script>
+      <script type="text/javascript" src="js/handlebars-v4.0.5.js" ></script>
       
+      <script id="login-template" type="text/x-handlebars-template">
+       
+       <div class=" center-align  s8">
+          <h2 class="center">Login</h2>
+          <div>
+              <form class="col s12 form-signin">
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="email" type="email" name="email" class="validate">
+                          <label for="email">Email</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="password" type="password" name="password" class="validate">
+                          <label for="password">Password</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col s12">
+                          <p class="right-align">
+                              <button <a gotError="Materialize.toast('Incorrect Login', 4000)" class="btn btn-large wave-effect wave-light" type="submit" name="action">Submit</button>
+                          </p>
+                      </div>
+                  </div>
+              </form>
+          </div>
+     
+      </div>
+      </script> 
+      
+      <script id="welcome-template" type="text/x-handlebars-template">
+          <h3>Welcome, {{email}} 
+            now get something done and</h3>
+          <button class="btn  btn-large waves-effect waves-light add-blog"><i class="material-icons left">library_add</i>Add Task</button>
+            <h3> or don't and</h3>
+          <button class="btn  btn-large waves-effect waves-light logout"><i class="material-icons left">input</i>Logout</button>
+      </script>
+      
+      <script id="add-blog-template" type="text/x-handlebars-template">
+      <h2>Add New Task</h2>
+      <div class="row">
+          <form class="col s12 form-add-blog">
+              <div class="row">
+                  <div class="input-field col s12">
+                      <input id="title" type="text" name="title">
+                      <label for="title">Title</label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s12 ">
+                      <textarea id="content" name="content" class="materialize-textarea"></textarea>
+                      <label class="content" for="content">Content</label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col s12">
+                      <p class="right-align">
+                          <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
+                      </p>
+                  </div>
+              </div>
+          </form>
+      </div>
+    </script>
     </body>
   </html>
         

@@ -15,6 +15,20 @@ body, .font{
     font-family: 'Indie Flower', cursive;
 }
 
+/* TASKS */
+
+.box{
+    height:45px;
+    width: auto;
+    padding-right: -10px;
+}
+
+/* LOGIN */
+
+.login{
+    padding-left:100px;
+}
+
 /*FOOTER*/
 .up{
     height: 50px;
