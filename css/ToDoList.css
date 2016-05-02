@@ -1,0 +1,52 @@
+/* BODY */
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction:column;
+    color:black;
+   background-image: url(http://www.alisonteale.com/wp-content/themes/alison-teale/images/background-85.jpg);
+    
+   background-size:100% 100%;
+    top: 0;
+    left: 0;
+    width: 99%;
+    height: 100%;
+    background-color: black;
+}
+
+main{
+    flex: 1 0 auto; 
+}
+
+body, .font{
+    font-family: 'Indie Flower', cursive;
+}
+
+/* TASKS */
+
+.box{
+    height:45px;
+    width: auto;
+    padding-right: -10px;
+}
+
+/* LOGIN */
+
+.login{
+    padding-left:100px;
+}
+
+/*FOOTER*/
+.up{
+    height: 50px;
+    width: auto;
+    margin-bottom: 0px;
+}
+
+.home{
+    height: 55px;
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 10px;
+   
+}
