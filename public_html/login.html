@@ -25,9 +25,9 @@
               
     <div class="nav-wrapper">
       <a href="index.html" class="center brand-logo font"> To Do List </a>
-       <ul>
+       <!--<ul>
           <li><a href="#!" class="add-blog"><i class="material-icons left">library_add</i>Add Task</a></li>
-      </ul>  
+      </ul>  -->
       <ul class="right">
         
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
@@ -56,8 +56,16 @@
       
       <footer class="page-footer pink ">
             <div class="container">
-                <p class="right-align"><a href="#"><img class="up" src="pics/up.png" alt=""/></a></p>
                
+                <div class="row">
+       
+      <div class="col s3 offset-s10">
+          <span class="flow-text">
+              <a href="index.html"><img class="home" src="pics/icon_home.png" alt=""/></a>
+              <a href="#"><img class="up" src="pics/up.png" alt=""/></a>
+          </span>
+      </div>
+    </div>
             </div>   
             <div class="footer-copyright">
                 <div class="container">
@@ -93,7 +101,10 @@
                   <div class="row">
                       <div class="col s12">
                           <p class="right-align">
-                              <button <a gotError="Materialize.toast('Incorrect Login', 4000)" class="btn btn-large wave-effect wave-light" type="submit" name="action">Submit</button>
+                          
+                          <button class="btn btn-large waves-effect waves-light sign-template">Sign Up</button>
+                           <button <a gotError="Materialize.toast('Incorrect Login', 4000)" class="btn btn-large wave-effect wave-light" type="submit" name="action">Submit</button>
+                      
                           </p>
                       </div>
                   </div>
@@ -102,7 +113,7 @@
      
       </div>
       </script> 
-      
+      <button class="btn btn-large wave-effect wave-light left-align sign-template" type="submit" name="action">Sign Up</button>
       <script id="welcome-template" type="text/x-handlebars-template">
           <h3>Welcome, {{email}} 
             now get something done and</h3>
@@ -137,6 +148,37 @@
           </form>
       </div>
     </script>
+    <script id="sign-up-template" type="text/x-handlebars-template">
+          <div class=" center-align  s8">
+          <h2 class="center">Sign Up</h2>
+          <div>
+              <form class="col s12 form-signup">
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="email" type="email" name="email" class="validate">
+                          <label for="email">Email</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="password" type="password" name="password" class="validate">
+                          <label for="password">Password</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col s12">
+                          <p class="right-align">
+                           <button class="btn btn-large wave-effect wave-light left-align sign-up" type="submit" name="action">Sign Up</button>
+                      
+                          </p>
+                      </div>
+                  </div>
+              </form>
+          </div>
+     
+      </div>
+</script>
+    
     </body>
   </html>
         
