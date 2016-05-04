@@ -1548,7 +1548,7 @@
 
             Backendless.LocalCache.remove("user-token");
             Backendless.LocalCache.remove("current-user-id");
-            Backendless.LocalCache.set("stayLoggedIn", false);
+            Backendless.LocalCache.set("stayLoggedIn", true);
 
             var responder = extractResponder(arguments);
             var isAsync = responder != null;
