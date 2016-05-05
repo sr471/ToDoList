@@ -4,8 +4,9 @@ body{
     min-height: 100vh;
     flex-direction:column;
     color:black;
-   background-image: url(http://www.alisonteale.com/wp-content/themes/alison-teale/images/background-85.jpg);
-    
+  // background-image: pics/images.jpg ;
+     background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS-dCJ7ozVAyi2oxoeKF0xm1gTayAhJDMKDTsgcm6nrS47RpGVL");
+    background-repeat: repeat-x;
    background-size:100% 100%;
     top: 0;
     left: 0;

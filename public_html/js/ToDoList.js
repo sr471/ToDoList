@@ -5,8 +5,11 @@ $(function (){
         VERSION = "v1";
         
    Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION);
-   
-   var tasksCollection = Backendless.Persistence.of(Tasks).find();
+  
+    var dataQuery = {
+       condition: "ownerId = '" + Backendless.LocalCache.get("current-user-id") + "'"
+   };
+   var tasksCollection = Backendless.Persistence.of(Tasks).find(dataQuery);
    
    console.log(tasksCollection);
     
@@ -57,6 +60,7 @@ $(function (){
             title = data[0].value,
             content = data[1].value;
             
+            
            if (title === "") {
            Materialize.toast('Cannot leave title empty!', 4000, 'rounded');
         }
@@ -103,17 +107,27 @@ $(function (){
  
     
    
-        console.log("DUUUUUUUUUUUDE IT WORKED!!");
+        if(Backendless.UserService.isValidLogin()) {
          var blogScript = $("#blogs-template").html();
    var blogTemplate = Handlebars.compile(blogScript);
    var blogHTML = blogTemplate(wrapper);
    
-   $('.main-container').html(blogHTML); // } }
+   $('.main-container').html(blogHTML); 
+        }
+        
+        else{
+            var loginScript = $("#please-login").html();
+   var loginTemplate = Handlebars.compile(loginScript);
+   var loginHTML = loginTemplate(wrapper);
    
+   $('.main-container').html(loginHTML);
+        }
+        
    $(document).on('click', '.white-out-post', function(){
            var checkListScript = $("#check-done-template").html();
            var checkListTemplate = Handlebars.compile(checkListScript);
            $('.main-container').html(checkListTemplate);
+           done();
            
        });
        
@@ -130,6 +144,7 @@ function Tasks(args){
     this.title = args.title || "";
     this.content = args.content || "";
     this.authorEmail = args.authorEmail || "";
+    this.done = args.done || "";
     
 }
 
@@ -138,8 +153,8 @@ $(document).on('click','.trash', function(event){
     location.reload();
 });
 
-        //function done(){
-            //this.complete =  true;
+        function done(){
+            this.complete =  "true";
     
     console.log("lllllllllllllllllllllll");
     
@@ -161,7 +176,7 @@ dataStore.save( savedTask );
 //dodone["Complete"] = true;
 //dodone.save( dodone );
 
-//}
+}
 /*BackendlessUser user = Backendless.UserService.login( "spidey@backendless.com", "myNewPassword" );
 user.setPassword( "myNewPassword1" );
 Backendless.Data.of( BackendlessUser.class ).save( user );*/
